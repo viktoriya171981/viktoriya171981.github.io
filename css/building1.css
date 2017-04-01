@@ -1,0 +1,167 @@
+
+@import url("reset.css");
+
+:root {
+	--header-line: 45px;
+	--header-color: rgba(255, 250, 240, .8);
+}
+
+
+html {
+  box-sizing:  border-box;
+  background: #ccc;
+	max-height: 100%;	
+  display: flex;
+  flex-direction: column;
+}
+
+*, *:before, *:after {
+  box-sizing:  inherit;
+  margin: 0px;
+	padding: 0px;
+}
+
+body {	
+display: flex;
+flex-direction: column;
+flex: 0 0 auto;
+}
+
+.page-header {
+	position: fixed;
+	top: 10px;
+	width: 100%;
+	background-color: var(--header-color);
+	z-index: 100;
+}
+
+.page-logo {
+	padding: 10px;
+}
+
+.page-menu-chk,
+.page-menu-label {
+	display: none;
+}
+.page-menu-chk:checked~.page-menu-label {
+  background-image: url("../img/cross.png");
+}
+.page-menu-chk:checked~.page-nav-list {
+	display: flex;
+}
+.page-nav,
+.page-nav-list,
+.page-nav-list>li {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: stretch;
+	align-content: stretch;
+}
+.page-nav-list {
+	flex: 1 1 auto;
+	list-style-type: none;	
+}
+.page-nav-list>li{	
+  flex: 1 1 5%;
+}
+.page-nav-list>li>a {
+	text-decoration: none;
+	white-space: nowrap;
+	padding: 5px;
+	flex: 1 1 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.page-nav-list>li>a:hover {
+	background-color: rgba(0,0,255, .5);
+}
+.page-nav-list>li> .active  {
+	border-bottom: 3px solid rgba(0,0,255, .5);
+	border-top: 3px solid rgba(0,0,255, .5);
+}
+.general {
+	position: relative;
+  width: 100%;	
+  margin: auto;
+  display: none;
+}
+.building1 {
+	position: relative;
+  width: 100%;	
+  margin: auto;
+  display: none;
+}
+.active {
+	display: block;
+}
+.general-img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -10;
+}
+.building1-svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	border: 2px solid blue;
+	width: 100%;
+}
+.building1-svg polygon {
+	stroke: red;
+	stroke-width: 2;
+	z-index: 20;
+	fill: blue;
+	opacity: .5;
+	cursor: pointer;
+}
+.building1-svg polygon:hover {
+	fill: red;
+}
+
+.room-plan {
+  position: fixed;
+  left: 95%;
+  top: 150px; 
+	width: 50%;
+	height: 400px;
+	align-self: center;
+	background-color: #fff;	
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+@media all and (max-width: 500px) {
+  .page-menu-label {
+		display:  block;
+		width: 50px;
+		height: 50px;
+		background-image: url("../img/menu.png");
+		background-size: 40px, 40px;
+		background-repeat: no-repeat;		
+		flex: 0 0 auto;
+		align-self: flex-end;
+  }
+  .page-nav-list {
+		display: none;
+		flex: 1 1 100%;
+		flex-direction: column;
+  }
+  .page-nav-list>li> .active  {
+	  border-bottom-width: 0px; 
+	  border-top-width: 0px; 
+	  background-color: rgba(0,0,255, .5);
+  }
+  
+  .page-nav-list>li {  
+    border-top: 1px solid rgba(0,0,255, .5);
+  }
+  .page-nav-list>li:last-child {  
+    border-bottom: 2px solid rgba(0,0,255, .5);
+  }
+ 
+}
