@@ -1,10 +1,15 @@
 
 @import url("reset.css");
 
+:root {
+	--header-line: 45px;
+	--header-color: rgba(255, 250, 240, .8);
+}
+
 
 html {
   box-sizing:  border-box;
-	background-color: #CDC1C5;
+  background: #ccc;
 	max-height: 100%;	
   display: flex;
   flex-direction: column;
@@ -20,14 +25,13 @@ body {
 display: flex;
 flex-direction: column;
 flex: 0 0 auto;
-
 }
 
 .page-header {
 	position: fixed;
 	top: 10px;
 	width: 100%;
-	background-color: rgba(255, 250, 240, .8);
+	background-color: var(--header-color);
 	z-index: 100;
 }
 
@@ -78,35 +82,44 @@ flex: 0 0 auto;
 	border-bottom: 3px solid rgba(0,0,255, .5);
 	border-top: 3px solid rgba(0,0,255, .5);
 }
-.main-index>div {
+.general {
 	position: relative;
-  width: 90%;	
+  width: 100%;	
   margin: auto;
+  display: none;
 }
-
+.building1 {
+	position: relative;
+  width: 100%;	
+  margin: auto;
+  display: none;
+}
+.active {
+	display: block;
+}
 .general-img {
 	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: -10;
-	width: 100%;
 }
-.general-svg {
+.building1-svg {
 	position: absolute;
 	top: 0;
 	left: 0;
-
+	z-index: 1;
+	border: 2px solid blue;
 	width: 100%;
 }
-.general-svg polygon {
+.building1-svg polygon {
 	stroke: red;
 	stroke-width: 2;
-
+	z-index: 20;
 	fill: blue;
 	opacity: .5;
 	cursor: pointer;
 }
-.general-svg polygon:hover {
+.building1-svg polygon:hover {
 	fill: red;
 }
 
